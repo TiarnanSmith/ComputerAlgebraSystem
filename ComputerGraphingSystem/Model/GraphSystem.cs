@@ -21,7 +21,9 @@ namespace ComputerGraphingSystem.Model
         {
             _plotView = plot;
             _graphs = new List<PlotController>();
-
+            
+            
+            //Temp
             Expression eq = new Expression();
             eq.AddTerm(new Term(1d, 'x', 2d));
             PlotController controller = new PlotController(_plotView, new Equation(eq));
@@ -31,8 +33,8 @@ namespace ComputerGraphingSystem.Model
             PlotController controller2 = new PlotController(_plotView, new Equation(eq2));
 
             Expression express3 = new Expression();
-            express3.AddTerm(new Term(1d, 'x', 2d));
-            //express3.AddTerm(new Term(-3d, 'x', 0d));
+            express3.AddTerm(new Term(0.5d, 'x', 2d));
+            express3.AddTerm(new Term(-8d, 'x', 0d));
             PlotController equation3 = new PlotController(_plotView, new Equation(express3));
 
             _graphs.Add(controller);

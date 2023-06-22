@@ -49,7 +49,7 @@ namespace ComputerAlgebraSystem
 
         public double GetCoefficient()
         {
-            return _coefficient.Value;
+            return _coefficient.Value*_operator.Value;
         }
 
         public string GetStringForm()

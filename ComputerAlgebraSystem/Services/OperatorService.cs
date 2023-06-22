@@ -11,8 +11,8 @@ namespace ComputerAlgebraSystem.Services
     {
         public readonly static Dictionary<string, OperateBase>? Operators = new Dictionary<string, OperateBase>()
         {
-            {"+", new OperateBase("Plus", "+") },
-            {"-", new OperateBase("Minus", "-") },
+            {"+", new OperateBase("Plus", "+", 1) },
+            {"-", new OperateBase("Minus", "-", -1) },
         };
     }
 }

@@ -111,11 +111,9 @@ namespace ComputerAlgebraSystem
         /// </summary>
         private double[][] PlotTrim(PlotView plotView, double[][] plot) // Easier than inverse functions to implement
         {
-            for (int rootPair =0;  rootPair < 2; rootPair++) { }
-            
-            double[][] rootsU = FindRoots(_expressions[1], plotView.YStartValue, plotView);
+            double[][] rootsU = FindRoots(_expressions[1], plotView.YStartValue);
             plot = ValueTrim(rootsU, plot);
-            double[][] rootsL = FindRoots(_expressions[1], plotView.YEndValue, plotView);
+            double[][] rootsL = FindRoots(_expressions[1], plotView.YEndValue);
             plot = ValueTrim(rootsL, plot);
             return plot;
         }
@@ -142,7 +140,7 @@ namespace ComputerAlgebraSystem
                         {
                             tempStore.RemoveRange(roots[i][0] < 0 ? 0 : midpoint, roots[i][0] >= 0 ? tempStore.Count - midpoint : midpoint);
                         }
-                        else if (roots[i][1] > 0)
+                        else if (roots[i][1] < 0)
                         {
                             tempStore.RemoveRange(roots[i][0] < 0 ? midpoint : 0, roots[i][0] >= 0 ? 0 : tempStore.Count - midpoint);
                         }
@@ -171,23 +169,26 @@ namespace ComputerAlgebraSystem
         /// <param name="b">k</param>
         /// <returns>h(x)=f(x)-k values</returns>
         /// <remarks>If <see langword="null"/> there are no roots or not compatible yet.</remarks>
-        public static double[][]? FindRoots(Expression a, double b, PlotView plotView) // Lots of different optimised methods; try logical later
+        public static double[][]? FindRoots(Expression a, double c) // Lots of different optimised methods; try logical later
         {
-            Expression rooting = a - (new Expression(new Term(plotView.YEndValue, 'x', 0)));
-            double[]? Xroots = QuadraticFormula(a);
+            Expression rooting = a;
+            a.AddTerm(new Term((-1)*c, 'x', 0));
+            double[]? Xroots = QuadraticFormula(rooting);
 
-            if (Xroots != null)
+
+
+            if (a.GetDegree() == 1)
             {
-                double[][] roots = new double[2][];
-                roots[0] = new double[2] { Xroots[0], a.Substitute(Xroots[0]) };
-                roots[1] = new double[2] { Xroots[1], a.Substitute(Xroots[1]) };
-                return roots;
-            }
-            else if (a.GetDegree() ==1)
-            {
-                double root = a.FindPowerTermCoefficient(0) / a.FindPowerTermCoefficient(1);
+                double root = rooting.FindPowerTermCoefficient(0) / rooting.FindPowerTermCoefficient(1);
                 double[] roots = new double[2] { root, a.Substitute(root) };
                 return new double[1][] { roots };
+            }
+            else if (Xroots != null)
+            {
+                double[][] roots = new double[2][];
+                roots[0] = new double[2] { Xroots[0], rooting.Substitute(Xroots[0]) };
+                roots[1] = new double[2] { Xroots[1], rooting.Substitute(Xroots[1]) };
+                return roots;
             }
             else
             {
@@ -197,7 +198,7 @@ namespace ComputerAlgebraSystem
 
         public static double Discriminant(double a, double b, double c) //ax^2+bx+c
         {
-            return (Math.Pow(b,2)-4*a*c);
+            return (Math.Pow(b,2)+(-1)*4*a*c);
         }
 
         public static double[]? QuadraticFormula(Expression expression)
