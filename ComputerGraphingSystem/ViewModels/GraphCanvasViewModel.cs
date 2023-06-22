@@ -40,10 +40,19 @@ namespace ComputerGraphingSystem.ViewModels
         {
             for (int i = 0; i < _graphSystem.Graphs.Count; i++)
             {
-                _curveLines.Add(new LineViewModel(_graphSystem.Graphs[i].GraphPlot.Graph.GetPlotPoints(),
+                _curveLines[i] = new LineViewModel(_graphSystem.Graphs[i].GraphPlot.Graph.GetPlotPoints(),
                     _graphSystem.PlotView.GetXRange(),
-                    _graphSystem.PlotView.GetYRange()));
+                    _graphSystem.PlotView.GetYRange());
             }
+        }
+
+        public void AddCachedGraphs()
+        {
+            for (int i = 0; i < _graphSystem.Graphs.Count; i++)
+            {
+                _curveLines.Add(new LineViewModel(_graphSystem.Graphs[i].GraphPlot.Graph.GetPlotPoints(), _graphSystem.PlotView.GetXRange(), _graphSystem.PlotView.GetYRange())); ;
+            }
+            
         }
 
 
@@ -59,16 +68,8 @@ namespace ComputerGraphingSystem.ViewModels
                 new LabelTextBoxViewModel("Y0"),
                 new LabelTextBoxViewModel("Y1")
             };
-            
 
-
-            for (int i = 0; i < graphSystem.Graphs.Count; i++)
-            {
-                _curveLines.Add(new LineViewModel(graphSystem.Graphs[0].GraphPlot.Graph.GetPlotPoints()));
-            }
-
-            //_curveLines.Add(new LineViewModel(graphSystem.Graphs[0].GraphPlot.Graph.GetDerivativeApproximation(), _graphPlotView.GetXRange(),  _graphPlotView.GetYRange()));
-            
+            AddCachedGraphs();
         }
     }
 }

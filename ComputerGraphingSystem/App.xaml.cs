@@ -26,7 +26,7 @@ namespace ComputerGraphingSystem
         /// </summary>
         public App()
         {
-            _graphSystem = new GraphSystem(new ComputerAlgebraSystem.Plotting.PlotView(-10,5,-5,5));
+            _graphSystem = new GraphSystem(new ComputerAlgebraSystem.Plotting.PlotView(-5,5,-5,5));
 
             _navigationStore = new NavigationStore();
 
