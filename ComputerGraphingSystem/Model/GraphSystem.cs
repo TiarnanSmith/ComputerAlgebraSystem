@@ -30,8 +30,14 @@ namespace ComputerGraphingSystem.Model
             eq2.AddTerm(new Term(1d, 'x', 1d));
             PlotController controller2 = new PlotController(_plotView, new Equation(eq2));
 
+            Expression express3 = new Expression();
+            express3.AddTerm(new Term(1d, 'x', 2d));
+            //express3.AddTerm(new Term(-3d, 'x', 0d));
+            PlotController equation3 = new PlotController(_plotView, new Equation(express3));
+
             _graphs.Add(controller);
             _graphs.Add(controller2);
+            _graphs.Add(equation3);
 
         }
 

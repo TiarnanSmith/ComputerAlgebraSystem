@@ -50,7 +50,9 @@ namespace ComputerGraphingSystem.ViewModels
         {
             for (int i = 0; i < _graphSystem.Graphs.Count; i++)
             {
-                _curveLines.Add(new LineViewModel(_graphSystem.Graphs[i].GraphPlot.Graph.GetPlotPoints(), _graphSystem.PlotView.GetXRange(), _graphSystem.PlotView.GetYRange())); ;
+                _curveLines.Add(new LineViewModel(_graphSystem.Graphs[i].GraphPlot.Graph.GetPlotPoints(),
+                    _graphSystem.PlotView.GetXRange(),
+                    _graphSystem.PlotView.GetYRange(), _graphSystem.Graphs[i].GraphPlot.Name)); ;
             }
             
         }

@@ -69,7 +69,7 @@ namespace ComputerAlgebraSystem
 
         public string GetStringForm()
         {
-            return $"{_expressions[0]}={_expressions[1]}";
+            return $"{_expressions[0].GetStringForm()}={_expressions[1].GetStringForm()}";
         }
 
         /// <summary>
@@ -115,8 +115,8 @@ namespace ComputerAlgebraSystem
             
             double[][] rootsU = FindRoots(_expressions[1], plotView.YStartValue, plotView);
             plot = ValueTrim(rootsU, plot);
-            //double[][] rootsL = FindRoots(_expressions[1], plotView.YEndValue, plotView);
-            //plot = ValueTrim(rootsL, plot);
+            double[][] rootsL = FindRoots(_expressions[1], plotView.YEndValue, plotView);
+            plot = ValueTrim(rootsL, plot);
             return plot;
         }
 

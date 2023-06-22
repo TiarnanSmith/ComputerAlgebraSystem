@@ -20,6 +20,7 @@ namespace ComputerGraphingSystem.ViewModels
         private PointCollection _points;
         private System.Drawing.Color _colour;
         private double _width;
+        private readonly string _name;
 
         /// <summary>
         /// Points for the line view
@@ -28,6 +29,8 @@ namespace ComputerGraphingSystem.ViewModels
         public System.Drawing.Color Colour => _colour;
         public double Width => _width;
 
+        public string Name => _name;
+
 
 
         public LineViewModel(double[][] points, double xRange = 10, double yRange = 10, string equation = "eq", string colour = "Black", double width = 3d)
@@ -35,7 +38,7 @@ namespace ComputerGraphingSystem.ViewModels
             _points = new PointCollection();
             _colour = System.Drawing.Color.FromName(colour);
             _width = width;
-
+            _name=equation;
 
             for (int i = 0; i < points.Length; i++) // find better way of doing this
             {

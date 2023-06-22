@@ -14,6 +14,7 @@ namespace ComputerAlgebraSystem.Plotting
         private string _name;
 
         public Graph Graph => _graph;
+        public string Name => _equation.GetStringForm();
 
         /// <summary>
         /// 
