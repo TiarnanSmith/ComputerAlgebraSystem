@@ -8,5 +8,8 @@ namespace ComputerGraphingSystem.ViewModels
 {
     internal class EquationViewModel : LabelTextBoxViewModel
     {
+        public EquationViewModel(string description) : base(description)
+        {
+        }
     }
 }

@@ -21,8 +21,6 @@ namespace ComputerGraphingSystem
         private readonly NavigationStore _navigationStore;
         private GraphSystem _graphSystem;
 
-        public GraphInputViewModel graphInputViewModel { get; } // Global as it needs to be
-
         /// <summary>
         /// Constructor for the application class;
         /// </summary>
