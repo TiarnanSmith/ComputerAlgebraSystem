@@ -35,7 +35,7 @@ namespace ComputerGraphingSystem.Model
             Expression express3 = new Expression();
             express3.AddTerm(new Term(0.5d, 'x', 2d));
             express3.AddTerm(new Term(-3d, 'x', 0d));
-            PlotController equation3 = new PlotController(_plotView, new Equation(express3)); // Roots outside => Array wont be present
+            PlotController equation3 = new PlotController(_plotView, new Equation(express3));
 
             _graphs.Add(controller);
             _graphs.Add(controller2);

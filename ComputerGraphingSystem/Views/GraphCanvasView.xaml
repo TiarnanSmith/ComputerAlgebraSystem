@@ -10,24 +10,52 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0" HorizontalAlignment="Stretch">
-            <ListView ItemsSource="{Binding ViewControls}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid HorizontalAlignment="Stretch">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="3*"/>
-                            </Grid.ColumnDefinitions>
-                            <Label Grid.Column="0" Content="{Binding Description}"/>
-                            <TextBox Text="{Binding TBContents, UpdateSourceTrigger=PropertyChanged}" 
+        <!--TThe Side Input-->
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="1" HorizontalAlignment="Stretch">
+                <ListView ItemsSource="{Binding ViewControls}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid HorizontalAlignment="Stretch">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Content="{Binding Description}"/>
+                                <TextBox Text="{Binding TBContents, UpdateSourceTrigger=PropertyChanged}" 
                                      Grid.Column="1" MinWidth="50"
                                      PreviewTextInput="NumberValidationTextBox"/>
-                        </Grid>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+
+            <Grid Grid.Row="0" HorizontalAlignment="Stretch">
+                <ListView ItemsSource="{Binding EquationControls}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid HorizontalAlignment="Stretch">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Content="{Binding Description}"/>
+                                <TextBox Text="{Binding TBContents, UpdateSourceTrigger=PropertyChanged}" 
+                                     Grid.Column="1" MinWidth="50"
+                                     PreviewTextInput="NumberValidationTextBox"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
         </Grid>
+        
 
         <Grid Grid.Column="1" HorizontalAlignment="Stretch" 
           VerticalAlignment="Stretch"
@@ -67,10 +95,11 @@
                     </Grid.Resources>
 
                     <Border>
+                        <!--https://stackoverflow.com/a/69810928/17302244-->
                         <Border.Clip>
                             <RectangleGeometry Rect="0, 0, 1280, 720" RadiusX="10" RadiusY="10"/>
                         </Border.Clip>
-
+                        
                         <Grid>
                             <Grid.RenderTransform>
                                 <TranslateTransform X="640" Y="360"/>
@@ -103,8 +132,6 @@
                                           />
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
-
-
                             </ItemsControl>
                         </Grid>
                     </Border>

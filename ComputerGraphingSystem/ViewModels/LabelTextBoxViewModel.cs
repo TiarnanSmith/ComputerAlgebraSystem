@@ -11,8 +11,8 @@ namespace ComputerGraphingSystem.ViewModels
 {
     public class LabelTextBoxViewModel : ViewModelBase
     {
-        private string _description;
-        private string _tBContents;
+        private protected string _description;
+        private protected string _tBContents;
         public string Description => _description;
         
         public string TBContents
