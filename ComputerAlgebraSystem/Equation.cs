@@ -101,69 +101,7 @@ namespace ComputerAlgebraSystem
                 incrementCounter += increment;
             }
 
-            CartesianCoordinates = PlotTrim(plotView, CartesianCoordinates);
-
             return CartesianCoordinates;
-        }
-
-        /// <summary>
-        /// Trims values in a select plot from y values
-        /// </summary>
-        private double[][] PlotTrim(PlotView plotView, double[][] plot) // Easier than inverse functions to implement
-        {
-            //double[][] rootsU = FindRoots(_expressions[1], plotView.YStartValue);
-            //plot = (ValueTrim(rootsU, plot).Count() != 0)? ValueTrim(rootsU, plot) : plot;
-            //double[][] rootsL = FindRoots(_expressions[1], plotView.YEndValue);
-            //plot = ValueTrim(rootsL, plot) != null ? ValueTrim(rootsL, plot): plot;
-            return plot;
-        }
-
-
-        private double[][] ValueTrim(double[][] roots, double[][] plot)
-        {
-            for (int i = 0; i < roots.Length; i++)
-            {
-                bool removedExcess = false;
-                int lower = 0;
-                int upper = plot.Length - 1;
-                int accuracyCount = 0;
-
-
-                while (!removedExcess) //Binary Search
-                {
-                    int midpoint = (int)((lower + upper) / 2d);
-
-                    if (Math.Abs(plot[midpoint][0] - roots[i][0]) < 0.00005 + 0.00001 * accuracyCount) // Desired
-                    {
-                        List<double[]> tempStore = plot.ToList();
-                        if (roots[i][1] > 0)
-                        {
-                            tempStore.RemoveRange(roots[i][0] < 0 ? 0 : midpoint, roots[i][0] >= 0 ? tempStore.Count - midpoint : midpoint);
-                        }
-                        else if (roots[i][1] < 0)
-                        {
-                            tempStore.RemoveRange(roots[i][0] <= 0 ? 0 : midpoint, roots[i][0] <= 0 ? midpoint : tempStore.Count - midpoint);
-                        }
-                        else if (roots[i][1] == 0)
-                        {
-
-                        }
-
-                        plot = tempStore.ToArray();
-                        removedExcess = true;
-                    }
-                    else if (plot[midpoint][0] < roots[i][0])
-                    {
-                        lower = midpoint;
-                    }
-                    else if (plot[midpoint][0] > roots[i][0])
-                    {
-                        upper = midpoint;
-                    }
-                    accuracyCount++;
-                }
-            }
-            return plot;
         }
 
         /// <summary>
