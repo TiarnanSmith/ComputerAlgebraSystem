@@ -28,7 +28,7 @@
                 </ListView.ItemTemplate>
             </ListView>
         </Grid>
-        
+
         <Grid Grid.Column="1" HorizontalAlignment="Stretch" 
           VerticalAlignment="Stretch"
             Height="720" 
@@ -66,46 +66,49 @@
                         <SolidColorBrush x:Key="CurveGrey">#FFF56111</SolidColorBrush>
                     </Grid.Resources>
 
-                    <Grid.RenderTransform>
-                        <TranslateTransform X="640" Y="360"/>
-                    </Grid.RenderTransform>
+                    <Border>
+                        <Border.Clip>
+                            <RectangleGeometry Rect="0, 0, 1280, 720" RadiusX="10" RadiusY="10"/>
+                        </Border.Clip>
 
-                    <ItemsControl ItemsSource="{Binding CurveLines, UpdateSourceTrigger=PropertyChanged}">
-                        <!--Wraping: https://stackoverflow.com/a/3131962/17302244-->
+                        <Grid>
+                            <Grid.RenderTransform>
+                                <TranslateTransform X="640" Y="360"/>
+                            </Grid.RenderTransform>
 
-                        <ItemsControl.ItemContainerStyle>
-                            <Style>
-                                <Setter Property="FrameworkElement.Margin" Value="0"/>
-                            </Style>
-                        </ItemsControl.ItemContainerStyle>
+                            <ItemsControl ItemsSource="{Binding CurveLines, UpdateSourceTrigger=PropertyChanged}">
+                                <!--Wraping: https://stackoverflow.com/a/3131962/17302244-->
 
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <Grid Grid.ColumnSpan="0" Grid.RowSpan="0">
+                                <ItemsControl.ItemContainerStyle>
+                                    <Style>
+                                        <Setter Property="FrameworkElement.Margin" Value="0"/>
+                                    </Style>
+                                </ItemsControl.ItemContainerStyle>
 
-                                </Grid>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Grid>
-                                    <Polyline Points="{Binding Points, UpdateSourceTrigger=PropertyChanged}"
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <Grid Grid.ColumnSpan="0" Grid.RowSpan="0">
+
+                                        </Grid>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Polyline Points="{Binding Points, UpdateSourceTrigger=PropertyChanged}"
                                           Stroke="{StaticResource ResourceKey=CurveGrey}" Opacity="0.5"
                                           StrokeThickness="{Binding Width, UpdateSourceTrigger=PropertyChanged}"
                                           Margin="0 0 0 0"
-                                          Tag="{Binding Name}"
+                                          Tag="{Binding Name}" 
                                           />
-                                </Grid>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
 
-                        
-                    </ItemsControl>
+
+                            </ItemsControl>
+                        </Grid>
+                    </Border>
                 </Grid>
-
-
-
             </Grid>
         </Grid>
     </Grid>

@@ -111,8 +111,8 @@ namespace ComputerAlgebraSystem
         /// </summary>
         private double[][] PlotTrim(PlotView plotView, double[][] plot) // Easier than inverse functions to implement
         {
-            double[][] rootsU = FindRoots(_expressions[1], plotView.YStartValue);
-            plot = (ValueTrim(rootsU, plot).Count() != 0)? ValueTrim(rootsU, plot) : plot;
+            //double[][] rootsU = FindRoots(_expressions[1], plotView.YStartValue);
+            //plot = (ValueTrim(rootsU, plot).Count() != 0)? ValueTrim(rootsU, plot) : plot;
             //double[][] rootsL = FindRoots(_expressions[1], plotView.YEndValue);
             //plot = ValueTrim(rootsL, plot) != null ? ValueTrim(rootsL, plot): plot;
             return plot;
@@ -142,7 +142,11 @@ namespace ComputerAlgebraSystem
                         }
                         else if (roots[i][1] < 0)
                         {
-                            tempStore.RemoveRange(roots[i][0] < 0 ? midpoint : 0, roots[i][0] >= 0 ? 0 : tempStore.Count - midpoint);
+                            tempStore.RemoveRange(roots[i][0] <= 0 ? 0 : midpoint, roots[i][0] <= 0 ? midpoint : tempStore.Count - midpoint);
+                        }
+                        else if (roots[i][1] == 0)
+                        {
+
                         }
 
                         plot = tempStore.ToArray();
@@ -185,8 +189,8 @@ namespace ComputerAlgebraSystem
             else if (Xroots != null)
             {
                 double[][] roots = new double[2][];
-                roots[0] = new double[2] { Xroots[0], rooting.Substitute(Xroots[0]) };
-                roots[1] = new double[2] { Xroots[1], rooting.Substitute(Xroots[1]) };
+                roots[0] = new double[2] { Xroots[0], a.Substitute(Xroots[0]) };
+                roots[1] = new double[2] { Xroots[1], a.Substitute(Xroots[1]) };
                 return roots;
             }
             else
