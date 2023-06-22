@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ComputerGraphingSystem.ViewModels
 {
-    public class GraphInputViewModel : ViewModelBase
+    internal class EquationViewModel : LabelTextBoxViewModel
     {
     }
 }

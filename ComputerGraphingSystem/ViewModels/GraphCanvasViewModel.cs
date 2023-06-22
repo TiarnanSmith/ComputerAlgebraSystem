@@ -14,16 +14,27 @@ namespace ComputerGraphingSystem.ViewModels
     {
         private ObservableCollection<LineViewModel> _curveLines;
         private GraphSystem _graphSystem;
-        private ObservableCollection<LabelTextBoxViewModel> _viewControls;
+        
 
         public ObservableCollection<LineViewModel> CurveLines => _curveLines;
         // public ObservableCollection<LineViewModel> LabelledPoints => throw new NotImplementedException(); 
 
         public GraphSystem GraphSystem => _graphSystem;
+
+
+
+        private ObservableCollection<LabelTextBoxViewModel> _viewControls;
         /// <summary>
-        /// The size of the layout
+        /// The controls for the size of the graph view.
         /// </summary>
         public ObservableCollection<LabelTextBoxViewModel> ViewControls => _viewControls;
+
+
+
+        private ObservableCollection<LabelTextBoxViewModel> _equationControls;
+        public ObservableCollection<LabelTextBoxViewModel> EquationControls => _equationControls;
+
+
 
         public void UpdateRenderer()
         {
@@ -49,6 +60,8 @@ namespace ComputerGraphingSystem.ViewModels
                 new LabelTextBoxViewModel("Y1")
             };
             
+
+
             for (int i = 0; i < graphSystem.Graphs.Count; i++)
             {
                 _curveLines.Add(new LineViewModel(graphSystem.Graphs[0].GraphPlot.Graph.GetPlotPoints()));
