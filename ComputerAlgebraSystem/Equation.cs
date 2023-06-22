@@ -112,9 +112,9 @@ namespace ComputerAlgebraSystem
         private double[][] PlotTrim(PlotView plotView, double[][] plot) // Easier than inverse functions to implement
         {
             double[][] rootsU = FindRoots(_expressions[1], plotView.YStartValue);
-            plot = ValueTrim(rootsU, plot);
-            double[][] rootsL = FindRoots(_expressions[1], plotView.YEndValue);
-            plot = ValueTrim(rootsL, plot);
+            plot = (ValueTrim(rootsU, plot).Count() != 0)? ValueTrim(rootsU, plot) : plot;
+            //double[][] rootsL = FindRoots(_expressions[1], plotView.YEndValue);
+            //plot = ValueTrim(rootsL, plot) != null ? ValueTrim(rootsL, plot): plot;
             return plot;
         }
 
@@ -171,11 +171,10 @@ namespace ComputerAlgebraSystem
         /// <remarks>If <see langword="null"/> there are no roots or not compatible yet.</remarks>
         public static double[][]? FindRoots(Expression a, double c) // Lots of different optimised methods; try logical later
         {
+            Term t = new Term(c, 'x', 0);
             Expression rooting = a;
-            a.AddTerm(new Term((-1)*c, 'x', 0));
+            rooting.AddTerm(t);
             double[]? Xroots = QuadraticFormula(rooting);
-
-
 
             if (a.GetDegree() == 1)
             {
