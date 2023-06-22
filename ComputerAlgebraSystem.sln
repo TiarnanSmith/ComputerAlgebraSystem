@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComputerAlgebraSystem", "ComputerAlgebraSystem\ComputerAlgebraSystem.csproj", "{B583CD40-1D54-481B-A0FA-DCF9E5187B75}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComputerAlgebraSystemTests", "ComputerAlgebraSystemTests\ComputerAlgebraSystemTests.csproj", "{2F580453-419D-4E90-91CF-729782619A82}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComputerGraphingSystem", "ComputerGraphingSystem\ComputerGraphingSystem.csproj", "{D21C9394-249F-45CF-80FB-20CB46DBE31A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B583CD40-1D54-481B-A0FA-DCF9E5187B75} = {B583CD40-1D54-481B-A0FA-DCF9E5187B75}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B583CD40-1D54-481B-A0FA-DCF9E5187B75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B583CD40-1D54-481B-A0FA-DCF9E5187B75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B583CD40-1D54-481B-A0FA-DCF9E5187B75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B583CD40-1D54-481B-A0FA-DCF9E5187B75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F580453-419D-4E90-91CF-729782619A82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F580453-419D-4E90-91CF-729782619A82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F580453-419D-4E90-91CF-729782619A82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F580453-419D-4E90-91CF-729782619A82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D21C9394-249F-45CF-80FB-20CB46DBE31A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D21C9394-249F-45CF-80FB-20CB46DBE31A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D21C9394-249F-45CF-80FB-20CB46DBE31A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D21C9394-249F-45CF-80FB-20CB46DBE31A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A11FEB87-4D8F-4F6C-878B-6876245F19C4}
+	EndGlobalSection
+EndGlobal
