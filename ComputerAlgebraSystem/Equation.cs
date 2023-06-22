@@ -115,8 +115,8 @@ namespace ComputerAlgebraSystem
             
             double[][] rootsU = FindRoots(_expressions[1], plotView.YStartValue, plotView);
             plot = ValueTrim(rootsU, plot);
-            double[][] rootsL = FindRoots(_expressions[1], plotView.YEndValue, plotView);
-            plot = ValueTrim(rootsL, plot);
+            //double[][] rootsL = FindRoots(_expressions[1], plotView.YEndValue, plotView);
+            //plot = ValueTrim(rootsL, plot);
             return plot;
         }
 
@@ -182,6 +182,12 @@ namespace ComputerAlgebraSystem
                 roots[0] = new double[2] { Xroots[0], a.Substitute(Xroots[0]) };
                 roots[1] = new double[2] { Xroots[1], a.Substitute(Xroots[1]) };
                 return roots;
+            }
+            else if (a.GetDegree() ==1)
+            {
+                double root = a.FindPowerTermCoefficient(0) / a.FindPowerTermCoefficient(1);
+                double[] roots = new double[2] { root, a.Substitute(root) };
+                return new double[1][] { roots };
             }
             else
             {

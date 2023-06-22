@@ -69,18 +69,37 @@
                     <Grid.RenderTransform>
                         <TranslateTransform X="640" Y="360"/>
                     </Grid.RenderTransform>
+
                     <ItemsControl ItemsSource="{Binding CurveLines, UpdateSourceTrigger=PropertyChanged}">
                         <!--Wraping: https://stackoverflow.com/a/3131962/17302244-->
+
+                        <ItemsControl.ItemContainerStyle>
+                            <Style>
+                                <Setter Property="FrameworkElement.Margin" Value="0"/>
+                            </Style>
+                        </ItemsControl.ItemContainerStyle>
+
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
-                                <Canvas/>
+                                <Grid Grid.ColumnSpan="0" Grid.RowSpan="0">
+
+                                </Grid>
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
+                        
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <Polyline Points="{Binding Points, UpdateSourceTrigger=PropertyChanged}" Stroke="{StaticResource ResourceKey=CurveGrey}" Opacity="0.5" StrokeThickness="{Binding Width, UpdateSourceTrigger=PropertyChanged}"/>
+                                <Grid>
+                                    <Polyline Points="{Binding Points, UpdateSourceTrigger=PropertyChanged}"
+                                          Stroke="{StaticResource ResourceKey=CurveGrey}" Opacity="0.5"
+                                          StrokeThickness="{Binding Width, UpdateSourceTrigger=PropertyChanged}"
+                                          Margin="0 0 0 0"
+                                          />
+                                </Grid>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
+
+                        
                     </ItemsControl>
                 </Grid>
 

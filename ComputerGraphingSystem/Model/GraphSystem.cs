@@ -27,11 +27,12 @@ namespace ComputerGraphingSystem.Model
             PlotController controller = new PlotController(_plotView, new Equation(eq));
 
             Expression eq2 = new Expression();
-            eq.AddTerm(new Term(1d, 'x', 1d));
-            PlotController controller2 = new PlotController(_plotView, new Equation(eq));
+            eq2.AddTerm(new Term(1d, 'x', 1d));
+            PlotController controller2 = new PlotController(_plotView, new Equation(eq2));
 
             _graphs.Add(controller);
             _graphs.Add(controller2);
+
         }
 
         public void RecalculateAll()
