@@ -22,27 +22,14 @@ namespace ComputerGraphingSystem.ViewModels
             {
                 _tBContents = value;
                 OnPropertyChanged(nameof(TBContents));
-                ChangedSize();
             }
         }
 
         //ICommand ChangeSize { get; }
-        private Action _updateRenderer;
-        private Action<double> _updateController;
-
-        private void ChangedSize()
-        {
-            double tb = Convert.ToDouble(_tBContents);
-            _updateController.Invoke(tb);
-            _updateRenderer.Invoke();
-        }
-
-        public LabelTextBoxViewModel(string description, Action<double> updateController, Action updateRenderer)
+        public LabelTextBoxViewModel(string description)
         {
             _tBContents = "";
             _description = description;
-            _updateRenderer = updateRenderer;
-            _updateController = updateController;
         }
     }
 }

@@ -43,10 +43,10 @@ namespace ComputerGraphingSystem.ViewModels
             _viewControls = new ObservableCollection<LabelTextBoxViewModel>
             {
                 // This is os bad
-                new LabelTextBoxViewModel("X0", graphSystem.UpdatePlotViewX0, UpdateRenderer),
-                new LabelTextBoxViewModel("X1", graphSystem.UpdatePlotViewX1, UpdateRenderer),
-                new LabelTextBoxViewModel("Y0", graphSystem.UpdatePlotViewY0, UpdateRenderer),
-                new LabelTextBoxViewModel("Y1", graphSystem.UpdatePlotViewY1, UpdateRenderer)
+                new LabelTextBoxViewModel("X0"),
+                new LabelTextBoxViewModel("X1"),
+                new LabelTextBoxViewModel("Y0"),
+                new LabelTextBoxViewModel("Y1")
             };
             
             for (int i = 0; i < graphSystem.Graphs.Count; i++)

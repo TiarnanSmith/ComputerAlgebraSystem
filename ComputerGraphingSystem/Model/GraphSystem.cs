@@ -41,27 +41,5 @@ namespace ComputerGraphingSystem.Model
                 _graphs[i].UpdatePlot(_plotView);
             }
         }
-
-        // Lazy
-        public void UpdatePlotViewX0(double x0)
-        {
-            _plotView = new PlotView(x0, _plotView.XEndValue, _plotView.YStartValue, _plotView.YEndValue);
-            RecalculateAll();
-        }
-        public void UpdatePlotViewX1(double x1)
-        {
-            _plotView = new PlotView(_plotView.XStartValue, x1, _plotView.YStartValue, _plotView.YEndValue);
-            RecalculateAll();
-        }
-        public void UpdatePlotViewY0(double y0)
-        {
-            _plotView = new PlotView(_plotView.XStartValue, _plotView.XEndValue, y0, _plotView.YEndValue);
-            RecalculateAll();
-        }
-        public void UpdatePlotViewY1(double y1)
-        {
-            _plotView = new PlotView(_plotView.XStartValue, _plotView.XEndValue, _plotView.YStartValue, y1);
-            RecalculateAll();
-        }
     }
 }
