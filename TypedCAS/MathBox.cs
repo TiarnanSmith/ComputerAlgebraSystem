@@ -44,11 +44,11 @@ namespace TypedCAS
     ///     <MyNamespace:CustomControl1/>
     ///
     /// </summary>
-    public class CustomControl1 : Control
+    public class MathBox : Control
     {
-        static CustomControl1()
+        static MathBox()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(CustomControl1), new FrameworkPropertyMetadata(typeof(CustomControl1)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(MathBox), new FrameworkPropertyMetadata(typeof(MathBox)));
         }
     }
 }
