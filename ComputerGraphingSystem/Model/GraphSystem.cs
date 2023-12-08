@@ -40,7 +40,6 @@ namespace ComputerGraphingSystem.Model
             _graphs.Add(controller);
             _graphs.Add(controller2);
             _graphs.Add(equation3);
-
         }
 
         public void RecalculateAll()

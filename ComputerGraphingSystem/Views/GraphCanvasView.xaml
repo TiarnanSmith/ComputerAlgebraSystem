@@ -47,7 +47,7 @@
                                 </Grid.ColumnDefinitions>
                                 <Label Grid.Column="0" Content="{Binding Description}"/>
                                 <TextBox Text="{Binding TBContents, UpdateSourceTrigger=PropertyChanged}" 
-                                     Grid.Column="1" MinWidth="50"
+                                     Grid.Column="1" MinWidth="500"
                                      PreviewTextInput="NumberValidationTextBox"/>
                             </Grid>
                         </DataTemplate>
