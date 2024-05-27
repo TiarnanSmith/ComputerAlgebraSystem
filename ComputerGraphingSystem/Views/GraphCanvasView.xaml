@@ -48,7 +48,13 @@
                                 <Label Grid.Column="0" Content="{Binding Description}"/>
                                 <TextBox Text="{Binding TBContents, UpdateSourceTrigger=PropertyChanged}" 
                                      Grid.Column="1" MinWidth="500"
-                                     PreviewTextInput="NumberValidationTextBox"/>
+                                     PreviewTextInput="NumberValidationTextBox">
+                                    <TextBox.ContextMenu>
+                                        <ContextMenu>
+                                            <MenuItem Header="Foo" Command=""/>
+                                        </ContextMenu>
+                                    </TextBox.ContextMenu>
+                                </TextBox>
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>

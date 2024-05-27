@@ -32,6 +32,9 @@ namespace ComputerGraphingSystem.ViewModels
 
 
         private ObservableCollection<EquationViewModel> _equationControls;
+        /// <summary>
+        /// Equations of the graph view
+        /// </summary>
         public ObservableCollection<EquationViewModel> EquationControls => _equationControls;
 
 
@@ -62,13 +65,16 @@ namespace ComputerGraphingSystem.ViewModels
         {
             _graphSystem = graphSystem;
             _curveLines = new ObservableCollection<LineViewModel>();
+
             _equationControls = new ObservableCollection<EquationViewModel>()
             {
                 {new EquationViewModel("y1") }
             };
+
             _viewControls = new ObservableCollection<LabelTextBoxViewModel>
             {
                 // This is os bad
+                // Yes - 26/05/24
                 new LabelTextBoxViewModel("X0"),
                 new LabelTextBoxViewModel("X1"),
                 new LabelTextBoxViewModel("Y0"),
